@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/scss/styles.css">
+    <title>Pixel6-Loan Application</title>
+</head>
+
+<body>
+    <!-- Form To accept data -->
+    <div class="form-data">
+        <h1>Loan Application</h1>
+        <div id="error"></div>
+        <!-- On Submit call validateForm Function From JS -->
+        <form id="form" name="myform" action="thankyou.html" onsubmit="return validateform()">
+            <label for="fullName">Full Name:</label><br>
+            <input type="text" name="fullName" id="fullName" placeholder="Enter Full Name" required><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" name="email" id="email" placeholder="Enter Email Address" required><br>
+
+            <label for="pan">Pan Card No.</label><br>
+            <input type="text" name="pan" id="pan" placeholder="Enter Pan Card Details" maxlength="10" onkeyup="this.value = this.value.toUpperCase()" required><br>
+
+            <label for="loanAmount">Loan Amount</label><br><span id="words"></span><br>
+            <!-- On keyup call keyUp Function From JS -->
+            <input type="number" name="loanAmount" id="loanAmount" min="1" max="999999999" onkeyup="return keyUp()"><br>
+
+            <label for="captcha">Math Captcha</label>
+            <p id="operation"><span id="num1"></span> + <span id="num2"></span></p>
+            <input type="text" id="ans">
+            <!-- On Click call equation Function From JS -->
+            <input type="button" value="refresh" onclick="return equation()">
+
+        <input type="submit" value="Submit" id="submit">
+        </form>
+    </div>
+    <!-- Form End -->
+
+    <!-- Script to validate form and Other Function -->
+    <script src="js/main.js"></script>
+</body>
+</html>
+

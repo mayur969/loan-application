@@ -1,0 +1,36 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.form-data {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: wheat;
+  padding: 100px;
+  border-radius: 30px;
+  width: 20vw;
+}
+.form-data h1 {
+  text-align: center;
+}
+.form-data form label {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+.form-data form input[type=text], .form-data form input[type=email], .form-data form input[type=number] {
+  margin: 10px 0px;
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 1.2em;
+}
+.form-data form input[type=submit] {
+  display: block;
+  margin: 10px auto;
+  padding: 15px 25px;
+  font-size: 1.2em;
+  border-radius: 50px;
+}/*# sourceMappingURL=styles.css.map */
