@@ -21,7 +21,15 @@ window.addEventListener("load", () =>{
 function validateOtp(){
     let otpNum = localStorage.getItem("Otp");
     let inputotp = document.getElementById("otpNo").value;
-    
+    let otpval = /^[0-9]{4}$/
+    if(!inputotp){
+        alert('Please enter otp');
+        return false;
+    }
+    if(!otpval.test(inputotp)){
+        alert('Otp should only contain Number');
+        return false;
+    }
     // If Otp is Correct Return True
     if(otpNum == inputotp){
         return true;

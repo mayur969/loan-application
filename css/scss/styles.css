@@ -3,6 +3,10 @@ body {
   margin: 0;
 }
 
+.error {
+  border-color: red;
+}
+
 .form-data {
   position: absolute;
   top: 50%;

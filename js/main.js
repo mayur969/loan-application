@@ -50,18 +50,25 @@ function equation()
 
     num1.innerText = Math.floor(Math.random()* 10);
     num2.innerText = Math.floor(Math.random()* 10);
+
+    document.getElementById("ans").value = ''; 
 }
 // Function End
 
-// Function For Form Validation
-function validateform()
-{  
-    let fname = document.getElementById("fullName").value; 
-    let email = document.getElementById("email").value;
-    let pan = document.getElementById("pan").value;   
+function nameverify(fname){
+    let inputname = document.getElementById('fullName');
     const strSplit = fname.split(" ");
-    
-    // If Statement to Check Fullname has Two Words
+    const namealpha = /^[a-zA-Z ]*$/;
+
+    if(!namealpha.test(fname)){
+        inputname.classList.add('error');
+        alert("Name Must contain alphabets only");
+        return false;
+    }
+    else{
+        inputname.classList.remove('error');
+    }
+
     if(strSplit.length < 2)
     {
         alert("Name must have two words");
@@ -79,7 +86,31 @@ function validateform()
     }
 
     localStorage.setItem("fullName", strSplit[0]);
-    localStorage.setItem("Email", email);
+}
+
+function emailverify(email) {
+    const emailver = /^\w@\w.\w$/;
+    console.log(emailver.test('email'))
+    if(!emailver.test('email')){
+        email.classList.add('error');
+        alert("enter valid email");
+        return false;
+    }
+
+}
+
+// Function For Form Validation
+function validateform()
+{  
+    let fname = document.getElementById("fullName").value; 
+    let email = document.getElementById("email").value;
+    let pan = document.getElementById("pan").value;   
+   
+    
+    // If Statement to Check Fullname has Two Words
+    nameverify(fname)
+
+    localStorage.setItem("Email", email); 
 
     // Check Alphanumeric Pan Card Number Based on Pattern
     let pattern =/^([A-Z]){5}([0-9]){4}([A-Z]){1}$/;
@@ -96,9 +127,10 @@ function validateform()
     let res = Number(num1) + Number(num2);
     if(ans != res){
         alert("incorrect captcha");
+        
         return false;
     }
- 
+        
 return true; 
 }
 
