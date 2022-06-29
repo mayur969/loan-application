@@ -16,17 +16,18 @@
         <!-- On Submit call validateForm Function From JS -->
         <form id="form" name="myform" action="thankyou.html" onsubmit="return validateform()">
             <label for="fullName">Full Name:</label><br>
-            <input type="text" name="fullName" id="fullName" placeholder="Enter Full Name" required><br>
+            <input type="text" name="fullName" id="fullName" placeholder="Enter Full Name" onblur="return nameverify(this.value)"><br>
 
             <label for="email">Email:</label><br>
-            <input type="email" name="email" id="email" placeholder="Enter Email Address" required><br>
+            <input type="email" name="email" id="email" placeholder="Enter Email Address" onblur="return emailverify(this.value)"><br>
 
             <label for="pan">Pan Card No.</label><br>
             <input type="text" name="pan" id="pan" placeholder="Enter Pan Card Details" maxlength="10" onkeyup="this.value = this.value.toUpperCase()" required><br>
 
-            <label for="loanAmount">Loan Amount</label><br><span id="words"></span><br>
+            <label for="loanAmount">Loan Amount</label><br>
             <!-- On keyup call keyUp Function From JS -->
             <input type="number" name="loanAmount" id="loanAmount" min="1" max="999999999" onkeyup="return keyUp()"><br>
+            <span id="words"></span><br>
 
             <label for="captcha">Math Captcha</label>
             <p id="operation"><span id="num1"></span> + <span id="num2"></span></p>
